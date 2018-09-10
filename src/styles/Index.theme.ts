@@ -1,5 +1,7 @@
 import * as myTheme from './Index.m.css';
+import * as textInput from './text-input.m.css'
 
 export default {
-    "LabelInput": myTheme
+    "record-client/LabelInput": myTheme,
+    '@dojo/widgets/text-input': textInput,
 }

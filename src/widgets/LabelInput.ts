@@ -1,26 +1,28 @@
 import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
-import { theme, ThemedMixin, ThemedProperties } from '@dojo/framework/widget-core/mixins/Themed';
+import { WidgetProperties } from '@dojo/framework/widget-core/interfaces';
+import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
 import { v } from '@dojo/framework/widget-core/d';
 import * as css from './styles/LabelInput.m.css';
 
-interface LabelInputProps extends ThemedProperties {
-
+interface LabelInputProps extends WidgetProperties {
+    label?: string
 }
 
 @theme(css)
 export default class LabelInput extends ThemedMixin(WidgetBase)<LabelInputProps> {
     protected render() {
-        let styles = this.properties.theme || css;
-
-    
         return v("div", {
-            classes: styles.root
+            classes: [
+                this.theme(css.root),
+                css.rootFixed
+            ]
         }, [
                 v("label", {
                     classes: [
+                        this.theme(css.label)
                     ]
-                }, ["你好"]),
-                v("input", { classes: this.theme(styles.input) })
+                }, [this.properties.label || "label"]),
+                v("input", { classes: this.theme(css.input) })
             ]);
     }
 }

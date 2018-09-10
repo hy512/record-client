@@ -1,13 +1,15 @@
+@import './variables';
+
 .title {
     color: #850002;
     font-size: 16px;
 }
 .root{
-    color: #850002;
+    color: val(--h-color);
     font-size: 16px;
-    height: 1000px;
     background-color: #850002 !important;
 }
+
 .content{
     color: #850002;
     background-color: #850002;

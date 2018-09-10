@@ -5,7 +5,9 @@
     padding: 8px 25px;
     align-items: baseline;
 }
-
+.rootFixed {
+    font-weight: bold;
+}
 .label {
     font-size: 14px;
     color: #777;

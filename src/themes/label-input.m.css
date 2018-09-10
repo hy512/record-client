@@ -1,0 +1,20 @@
+.root {
+    background-color: black;
+    color: #850002;
+}
+
+.label {
+    font-size: 14px;
+    color: inherit;
+    background-color: auto;
+}
+
+.input {
+    font-size: 10px;
+    border: #cecece solid 1px;
+    padding: 1px 10px;
+}
+
+.input:focus {
+    border-color: #850002;
+}

@@ -1,9 +1,17 @@
+
 .root {
     display: flex;
     flex-direction: row;
     margin: 8 0;
-    padding: 8px 25px;
+    padding: 8px 0px;
     align-items: baseline;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.root * {
+    box-sizing: border-box;
 }
 .rootFixed {
     font-weight: bold;
@@ -20,6 +28,18 @@
 
 .input {
     margin: 0;
-    padding: 8px 5px;
+    padding: 3px 5px;
     margin: 0;
+    border-radius: 5px;
+    width: 60%;
+    outline: none;
+    border: 1px solid #cecece;
+}
+
+.input:focus {
+    border-color: #145fe0;
+}
+.input:hover {
+    box-shadow: 1px 1px 1px #a0c0ff,
+        -1px -1px 1px #a0c0ff;
 }

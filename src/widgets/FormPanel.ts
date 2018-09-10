@@ -17,7 +17,6 @@ export default class FormPanel extends ThemedMixin(WidgetBase)<FormPanelProps> {
         //         classes: this.theme(styles.title)
         //     }, [this.properties.title]));
         // }
-
         return v("div", {
             classes: this.theme(styles.root)
         }, [

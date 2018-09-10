@@ -1,6 +1,8 @@
 import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
 import { v, w } from '@dojo/framework/widget-core/d';
 import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
+import Button from '@dojo/widgets/button';
+import themes from '@dojo/themes/dojo';
 import FormPanel from '../widgets/FormPanel';
 // import theme from '@dojo/themes/dojo';
 import * as style from '../styles/Index.m.css';
@@ -17,8 +19,17 @@ export default class Index extends ThemedMixin(WidgetBase) {
                 w(FormPanel, {
                     title: "登录"
                 }, [
-                        w(LabelInput, {}),
-                        w(LabelInput, {})
+                        w(LabelInput, {
+                            label: "账号"
+                        }),
+                        w(LabelInput, {
+                            label: "密码"
+                        }),
+                        w(Button, {
+                            type: "button",
+                            theme: themes,
+                            extraClasses:  
+                        }, ["提交"])
                     ])
             ])
         ]);

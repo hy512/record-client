@@ -5,15 +5,22 @@
     font-size: 16px;
 }
 .root{
-    color: val(--h-color);
-    font-size: 16px;
-    background-color: #850002 !important;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
 }
+
+
 
 .content{
     color: #850002;
     background-color: #850002;
     font-size: 16px;
+    width: 480px;
+    position: relative;
+    left: 90%;
+    top: 50%;
+    transform: translate(-100%, -100%);
 }
 .closeable{
     color: #850002;
@@ -24,4 +31,11 @@
     font-size: 16px;
     height: 1000px;
     background-color: #850002 !important;
+}
+
+.center {
+    margin: 15px auto;
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
 }

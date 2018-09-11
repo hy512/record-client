@@ -1,5 +1,6 @@
 
 .root {
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     margin: 8 0;
@@ -10,14 +11,18 @@
     justify-content: center;
     box-sizing: border-box;
 }
-.root * {
-    box-sizing: border-box;
-}
+
 .rootFixed {
     font-weight: bold;
 }
+
+.root * {
+    box-sizing: border-box;
+}
+
+
 .label {
-    font-size: 14px;
+    font-size: 16px;
     color: #777;
     margin-right: 8px;
 }
@@ -27,19 +32,24 @@
 }
 
 .input {
+    font-size: 14px;
     margin: 0;
     padding: 3px 5px;
     margin: 0;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     width: 60%;
     outline: none;
     border: 1px solid #cecece;
+    /* box-shadow: 1px 1px 1px white,
+        -1px -1px 1px white; */
+    transition: border-color .25s ease-in-out 0s;
 }
 
 .input:focus {
-    border-color: #145fe0;
+    border-color: rgb(0, 107, 230);
 }
 .input:hover {
-    box-shadow: 1px 1px 1px #a0c0ff,
-        -1px -1px 1px #a0c0ff;
+    border-color: rgb(0, 107, 230);
+    /* box-shadow: 1px 1px 1px rgb(0, 107, 255),
+        -1px -1px 1px rgb(0, 107, 255); */
 }

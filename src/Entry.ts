@@ -1,3 +1,4 @@
+import '@dojo/framework/shim/browser';
 import "./config/init.css";
 import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
 import {w} from '@dojo/framework/widget-core/d';

@@ -1,32 +1,36 @@
 @import './variables';
-
 .title {
     color: #850002;
     font-size: 16px;
 }
-.root{
+
+.root {
     height: 100vh;
     width: 100vw;
     background-color: white;
 }
 
-
-
-.content{
+.content {
     color: #850002;
     background-color: #850002;
     font-size: 16px;
-    width: 480px;
+    max-width: 480px;
+    width: 100%;
     position: relative;
     left: 90%;
     top: 50%;
     transform: translate(-100%, -100%);
+    transition: transform 1s ease-in-out 0s,
+        left 1s ease-in-out 0s;
 }
-.closeable{
+
+.closeable {
     color: #850002;
     font-size: 16px;
 }
-.label, .input {
+
+.label,
+.input {
     color: #850002;
     font-size: 16px;
     height: 1000px;
@@ -38,4 +42,11 @@
     transform: translateX(-50%);
     position: relative;
     left: 50%;
+}
+
+@media screen and (max-width: 980px) {
+    .content {
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
 }

@@ -1,13 +1,19 @@
 import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
 import { WidgetProperties } from '@dojo/framework/widget-core/interfaces';
 import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
-import {} from '@dojo/widgets/text-input';
+import { } from '@dojo/widgets/text-input';
 import { v } from '@dojo/framework/widget-core/d';
 import * as css from './styles/LabelInput.m.css';
 
 interface LabelInputProps extends WidgetProperties {
-    label?: string
-    onChange?: (ev?: KeyboardEvent) => boolean | void;
+    id?: string;
+    name?: string;
+    label?: string;
+    onInput?: (ev?: Event) => boolean | void;
+    type?: string;
+    multiple?: boolean;
+    placeholder?: string;
+    value?: string;
 }
 interface StateMixin {
     readonly state: Readonly<any>;
@@ -30,8 +36,11 @@ function StateMixin<T extends new (...args: any[]) => WidgetBase>(Base: T):
 
         public onInput(ev?: Event): boolean | void {
             if (ev) {
-                // if (ev.target)
-                    // this.setState({ vlaue: ev.target.value });
+                if (ev.target instanceof HTMLInputElement) {
+                    let input: HTMLInputElement = ev.target;
+                    this.setState({ value: input.value });
+                    this.invalidate();
+                }
                 ev.stopPropagation();
             }
         }
@@ -42,6 +51,9 @@ function StateMixin<T extends new (...args: any[]) => WidgetBase>(Base: T):
 @theme(css)
 export default class LabelInput extends StateMixin(ThemedMixin(WidgetBase))<LabelInputProps> {
     protected render() {
+        let value: string = this.properties.value ?
+            this.properties.value : this.state.value;
+
         return v("div", {
             classes: [
                 this.theme(css.root),
@@ -52,12 +64,19 @@ export default class LabelInput extends StateMixin(ThemedMixin(WidgetBase))<Labe
                     classes: [
                         this.theme(css.label)
                     ]
-                }, [this.properties.label || "label"]),
-                v("input", {
-                    classes: this.theme(css.input),
-                    oninput: this.onInput,
-                    value: this.state.value
-                })
+                }, [
+                        this.properties.label || "label",
+                        v("input", {
+                            classes: this.theme(css.input),
+                            id: this.properties.id,
+                            name: this.properties.name,
+                            oninput: this.onInput,
+                            value,
+                            type: this.properties.type,
+                            placeholder: this.properties.placeholder,
+                            multiple: this.properties.multiple
+                        })
+                    ])
             ]);
     }
 }

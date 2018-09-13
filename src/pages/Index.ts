@@ -46,16 +46,22 @@ export default class Index extends StateMixin(ThemedMixin(WidgetBase)) {
                     classes: this.theme(styles.content)
                 }, [
                         w(FormPanel, {
-                            title: "登录"
+                            title: "登录",
+                            action: "http://localhost:9512/",
+                            method: "post",
+                            enctype: "multipart/form-data"
                         }, [
                                 w(LabelInput, {
-                                    label: "账号"
+                                    label: "账号: ",
+                                    name: "act"
                                 }),
                                 w(LabelInput, {
-                                    label: "密码"
+                                    label: "密码: ",
+                                    type: "password",
+                                    name: "pwd"
                                 }),
                                 w(Button, {
-                                    type: "button",
+                                    type: "submit",
                                     theme: themes,
                                     extraClasses: { "root": styles.center },
                                     onClick: this.submit

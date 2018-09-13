@@ -7,8 +7,8 @@
     padding: 8px 0px;
     align-items: baseline;
     width: 100%;
-    flex-direction: row;
-    justify-content: center;
+    /* flex-direction: row;
+    justify-content: center; */
     box-sizing: border-box;
 }
 
@@ -24,11 +24,9 @@
 .label {
     font-size: 16px;
     color: #777;
-    margin-right: 8px;
-}
-
-.label::after {
-    content: ":";
+    /* margin-right: 8px; */
+    width: 100%;
+    text-align: center;
 }
 
 .input {

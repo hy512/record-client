@@ -5,7 +5,10 @@ import { v } from '@dojo/framework/widget-core/d';
 import * as styles from './styles/FormPanel.m.css';
 
 interface FormPanelProps extends WidgetProperties {
-    title?: string
+    title?: string;
+    action?: string;
+    method?: string;
+    enctype?: string;
 }
 
 @theme(styles)
@@ -23,7 +26,10 @@ export default class FormPanel extends ThemedMixin(WidgetBase)<FormPanelProps> {
                 this.properties.title ? v("div", {
                     classes: this.theme(styles.title)
                 }, [this.properties.title]) : null,
-                v("div", {
+                v("form", {
+                    method: this.properties.method,
+                    action: this.properties.action,
+                    enctype: this.properties.enctype,
                     classes: this.theme(styles.content)
                 }, this.children)
             ]);
